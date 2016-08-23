@@ -1,5 +1,5 @@
-FILE_PATH = "C:\\Users\Radoslav\\Desktop\\c#\\01.python\\Convert File Data Into Objects In Python\\file.txt"
-FILE_PATH2 = "C:\\Users\Radoslav\\Desktop\\c#\\01.python\\Convert File Data Into Objects In Python\\file2.txt"
+FILE_PATH = ""
+FILE_PATH2 = ""
 
 text = "This is my string\ndsfd"
 
