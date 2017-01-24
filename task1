@@ -1,0 +1,20 @@
+from datetime import *
+
+
+def calulate_year(name, age):
+    year_today = datetime.today().year
+    after_year = 100 - age
+    turn_year = year_today + after_year
+    
+    print("your name is {} and your current age is {} years old and you will turn 100 years old in the year {}"
+          .format(name, age, turn_year))
+
+def main():
+    name = input("Give me your name: ")    
+    age = input("Enter your age: ")
+    age = int(age)
+
+    calulate_year(name, age)
+
+if __name__ == '__main__':
+    main()
