@@ -1,0 +1,17 @@
+number = int(input('Enter a number: '))
+chek_number = int(input('Enter check number: '))
+
+def oddOrEven():
+    if number % 4 == 0:
+        print(number, 'is multiple of 4')
+    elif number % 2 == 0:
+        print(number, 'numbe is even')
+    else:
+        print(number, 'is odd number')
+
+    if number % chek_number == 0:
+        print('{} divide by {}'.format(number, chek_number))
+    else:
+        print('{} does not divide by {}'.format(number, chek_number))
+
+oddOrEven(number, chek_number)
