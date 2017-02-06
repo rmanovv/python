@@ -1,0 +1,21 @@
+def return_list(number, a) -> list:
+    new_list = []
+
+    for num in a:
+        if num < number:
+            new_list.append(num)
+
+    return new_list
+
+
+def main():
+
+    a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+    number = int(input("Enter your digit: "))
+
+    result = return_list(number, a)
+    [print(nums) for nums in result]
+
+
+if __name__ == '__main__':
+    main()
