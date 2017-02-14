@@ -1,0 +1,48 @@
+'''Make a two-player Rock-Paper-Scissors game. (Hint: Ask for player plays (using input), compare them,
+print out a message of congratulations to the winner, and ask if the players want to start a new game)
+
+Remember the rules:
+
+    Rock beats scissors
+    Scissors beats paper
+    Paper beats rock
+'''
+
+def main():
+    while True:
+        one = input('user one select Rock; Paper or Scissor: ').lower()
+        two = input('user two select Rock; Paper or Scissor: ').lower()
+
+        if one == two:
+            print('Draw!!!')
+
+        elif one == 'rock':
+            if two == 'paper':
+                print('paper beat rock!!!')
+            elif two == 'scissor':
+                print('rock beat scissor!!!')
+
+        elif one == 'paper':
+            if two == 'rock':
+                print('paper beat rock!!!')
+            elif two == 'scissor':
+                print('scissor beat paper!!!')
+
+        elif one == 'scissor':
+            if two == 'rock':
+                print('rock beat scissor!!!')
+            elif two == 'paper':
+                print('scissor beat paper!!!')
+
+        else:
+            print('Incorrect input')
+
+        repeat = input('Do you want to continue Yes(Y) or No(N)\n').tolower()
+
+        if repeat == 'y':
+            continue
+        else:
+            break
+
+if __name__ == '__main__':
+    main()
