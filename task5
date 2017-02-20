@@ -17,6 +17,7 @@ b = random.sample(range(100), 50)
 
 def list_overlab(list1, list2):
     new_list = []
+    
     for item in list1:
         if item in a and item not in new_list:
             new_list.append(item)
