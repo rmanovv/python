@@ -1,0 +1,16 @@
+#Check Primality Functions
+
+def is_prime(digit):
+
+    if digit < 2:
+        return False
+
+    for i in range(2, digit):
+        if digit % i != 0:
+            return False
+    return True
+
+if __name__ == '__main__':
+    print("Check digit are is Prime or not")
+    user = int(input("Enter digit: "))
+    print(is_prime(user))
