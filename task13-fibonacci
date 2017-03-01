@@ -1,0 +1,11 @@
+def fibonacci() -> list:
+    fibo_list = [1, 1]
+    enter = int(input("Enter length of Fibonacci sequence: "))
+
+    if enter > 3:
+        for i in range(1, enter-1):
+            fibo_list.append(fibo_list[i-1] + fibo_list[i])
+    return fibo_list
+
+if __name__ == '__main__':
+    print(''.join(str(fibonacci())))
