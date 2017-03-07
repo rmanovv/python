@@ -1,0 +1,11 @@
+'''Write a program (using functions!) that asks the user for a long string containing multiple words. Print back to the user the same string,
+except with the words in backwards order.'''
+
+def reverse(text: str):
+    text_list = text.split()
+    new_list = text_list[::-1]
+    [print(i, end=' ') for i in new_list]
+
+if __name__ == '__main__':
+    text = input('Enter long text containing multiple words\n')
+    reverse(text)
