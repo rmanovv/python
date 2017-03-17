@@ -21,8 +21,29 @@ import random
 def find_no_binary(number, lists):
     return number in lists
 
+
+def find_binary(number, lists):
+    start_index = 1
+    end_index = len(lists) - 1
+
+    while True:
+        middle_index = (end_index - start_index)/2
+
+        if middle_index < start_index or middle_index > end_index or middle_index < 0:
+            return False
+
+            middle_element = lists[middle_index]
+
+        if middle_element == number:
+            return True
+        elif middle_element < number:
+            end_index = middle_index
+        else:
+            start_index = middle_index
+
 if __name__ == '__main__':
     generate_list = sorted(random.sample(range(0, 100), 20))
     find_number = int(input('Enter searched number: '))
 
     print(find_no_binary(find_number, generate_list))
+    print(find_binary(find_number, generate_list))
