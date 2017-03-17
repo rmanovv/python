@@ -1,0 +1,28 @@
+'''Write a function that takes an ordered list of numbers (a list where the elements are in order from smallest to largest)
+and another number. The function decides whether or not the given number is inside the list and returns (then prints)
+an appropriate boolean.
+
+Extras:
+
+    Use binary search.
+
+Discussion
+
+Topics:
+
+    Booleans - True and False
+    Equality testing
+    Binary search
+'''
+
+import random
+
+
+def find_no_binary(number, lists):
+    return number in lists
+
+if __name__ == '__main__':
+    generate_list = sorted(random.sample(range(0, 100), 20))
+    find_number = int(input('Enter searched number: '))
+
+    print(find_no_binary(find_number, generate_list))
