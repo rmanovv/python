@@ -1,0 +1,19 @@
+'''
+Given a .txt file that has a list of a bunch of names, count how many of each name there are in the file, and print out 
+the results to the screen. I have a .txt file for you, if you want to use it!
+'''
+
+counter_names = {}
+
+with open('file.txt', 'r') as file:
+    name = file.readline()
+
+    while name:
+        name.strip()
+        if name in counter_names:
+            counter_names[name] += 1
+        else:
+            counter_names[name] = 1
+        name = file.readline()
+
+print(str(counter_names).strip('{}'))
