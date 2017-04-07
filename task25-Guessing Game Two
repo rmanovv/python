@@ -1,0 +1,46 @@
+'''
+You, the user, will have in your head a number between 0 and 100.
+The program will guess a number, and you, the user, will say whether it is too high, too low, or your number.
+At the end of this exchange, your program should print out how many guesses it took to get your number.
+As the writer of this program, you will have to choose how your program will strategically guess.
+A naive strategy can be to simply start the guessing at 1, and keep going (2, 3, 4, etc.) until you hit the number.
+But that's not an optimal guessing strategy.
+An alternate strategy might be to guess 50 (right in the middle of the range), and then increase / decrease by 1 as needed.
+'''
+
+import random
+
+def guessing_game():
+    user_number = int(input('Enter your number: '))
+    try_to_guess = 0
+    pc_choice = 50
+    pc_choice_list = [50]
+
+    if pc_choice == user_number:
+        print("Your number is {}\ntry = {}".format(pc_choice, try_to_guess+1))
+    else:
+        while True:
+
+            if pc_choice == user_number:
+                print("Your number is {}\ntry = {}".format(pc_choice, try_to_guess))
+                break
+
+            elif pc_choice < user_number:
+                print("{} too low".format(pc_choice))
+
+                while pc_choice in pc_choice_list:
+                    pc_choice += random.randint(1, 5)
+
+                pc_choice_list.append(pc_choice)
+
+            elif pc_choice > user_number:
+                print("{} too high".format(pc_choice))
+
+                while pc_choice in pc_choice_list:
+                    pc_choice -= random.randint(1, 5)
+
+                pc_choice_list.append(pc_choice)
+
+            try_to_guess += 1
+
+guessing_game()
