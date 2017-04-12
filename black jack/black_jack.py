@@ -22,9 +22,11 @@ def init_shoe(num_deck=1):
     say('Shuffled {} cards into the dealer shoe. Good luck!'.format(cards))
     return cards
 
+
 def drow_prompt():
     # ask the player whether to draw a card or not
     pass
+
 
 def hand_score(hand):
     '''
@@ -48,6 +50,31 @@ def hand_score(hand):
     score += min([aces, 1]) * (1 if score >= 11 else 11)
 
     return score
+
+
+def ask_for_bet(balance, min_bet):
+    '''Ask the player to bet some amount'''
+
+    while True:
+        say("How much would you want to wager this time?")
+        try:
+            bet = input('>>')
+            bet = float(bet)
+
+            if bet > balance:
+                say("You don't have that kind of money on your account!")
+            elif bet < 0:
+                say("Negative bets not are allowed you... cheater!")
+            elif bet < min_bet:
+                say("Bet of must be above of {}".format(min_bet))
+            else:
+                balance -= bet
+                say("Bet of %.2f accepted!" %bet)
+                return bet, balance
+
+        except ValueError:
+            say("{} is not a valid bet! Please enter enter floating point number".format(bet))
+            
 
 if __name__ == '__main__':
     say_welcome()
