@@ -55,7 +55,7 @@ def hand_score(hand):
 def ask_for_bet(balance, min_bet):
     '''Ask the player to bet some amount'''
     
-    assert min_bet >= balance, "Not enough balance"
+    assert min_bet > balance, "Not enough balance"
     
     while True:
         say("How much would you want to wager this time?")
