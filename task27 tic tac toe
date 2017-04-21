@@ -1,0 +1,18 @@
+#Python tic tac toe game
+
+board = [i for i in range(1, 10)]
+
+
+def print_board(board):
+    
+    print(' --- --- ---')
+    print('| ' + str(board[0]) + ' | ' + str(board[1]) + ' | ' + str(board[2]) + ' |')
+    print(' --- --- ---')
+    print('| ' + str(board[3]) + ' | ' + str(board[4]) + ' | ' + str(board[5]) + ' |')
+    print(' --- --- ---')
+    print('| ' + str(board[6]) + ' | ' + str(board[7]) + ' | ' + str(board[8]) + ' |')
+    print(' --- --- ---')
+
+
+if __name__ == '__main__':
+    print_board(board)
