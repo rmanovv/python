@@ -1,7 +1,7 @@
 # Python tic tac toe game
 import random
 
-board = [i for i in range(1, 10)]
+board = [i for i in range(0, 9)]
 
 
 def print_board(board):
@@ -13,25 +13,57 @@ def print_board(board):
     print('| ' + str(board[6]) + ' | ' + str(board[7]) + ' | ' + str(board[8]) + ' |')
     print(' --- --- ---')
 
-while True:
-    user_char = int(input('Select a spot '))
+def chec_line(char, spot1, spot2, spot3):
+    if board[spot1] == char and board[spot2] == char and board[spot3] == char:
+        return True
 
-    if board[user_char] != 'x' and board[user_char] != 'o':
-        board[user_char] = 'x'
+def check_all(char):
+    if chec_line(char, 0, 1, 2):
+        True
+    if chec_line(char, 3, 4, 5):
+        True
+    if chec_line(char, 6, 7, 8):
+        True
+    if chec_line(char, 0, 3, 6):
+        True
+    if chec_line(char, 1, 4, 7):
+        True
+    if chec_line(char, 2, 5, 8):
+        True
+    if chec_line(char, 2, 4, 6):
+        True
+    if chec_line(char, 0, 4, 8):
+        True
 
-        finding = True
 
-        while finding:
-            opponent = random.randint(1, 10)
+def game_play():
+    while True:
+        user_char = int(input('Select a spot '))
 
-            if board[opponent] != 'o' or board[opponent] != 'x':
-                board[opponent] = 'o'
-                finding = False
+        if board[user_char] != 'x' and board[user_char] != 'o':
+            board[user_char] = 'x'
 
-    else:
-        print('This spot is taken!')
+            if check_all('x') == True:
+                print('x win!')
+                break
 
-    print_board(board)
+            while True:
+                opponent = random.randint(1, 10)
+
+                if board[opponent] != 'o' or board[opponent] != 'x':
+                    board[opponent] = 'o'
 
 
-# if __name__ == '__main__':
+                    if check_all('o') == True:
+                        print('o win!')
+                        break
+                    break
+
+        else:
+            print('This spot is taken!')
+
+        print_board(board)
+
+
+if __name__ == '__main__':
+    game_play()
