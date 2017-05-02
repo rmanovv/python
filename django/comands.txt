@@ -1,1 +1,5 @@
-python manage.py startaapp [name]
+easy_install --version
+django --version or django-admin --version
+django-admin startproject [name of project]
+
+python manage.py runserver
