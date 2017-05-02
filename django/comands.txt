@@ -3,3 +3,4 @@ django --version or django-admin --version
 django-admin startproject [name of project]
 
 python manage.py runserver
+python manage.py migrate
