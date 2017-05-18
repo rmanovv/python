@@ -13,3 +13,5 @@ python manage.py shell
 
 name of class .objects.all()
 name of class .objects.filter(id or something diferent)
+
+python manage.py createsuperuser
