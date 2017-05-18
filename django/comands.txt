@@ -10,3 +10,6 @@ every time when made new app we need to go to setings.py
 python manage.py makemigrations name of app
 
 python manage.py shell
+
+name of class .objects.all()
+name of class .objects.filter(id or something diferent)
