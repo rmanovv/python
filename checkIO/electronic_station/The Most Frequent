@@ -4,9 +4,11 @@ def most_frequent(data):
     """
         determines the most frequently occurring string in the sequence.
     """
-    counter = Counter(data)
+    '''counter = Counter(data)
     elem, count = counter.most_common(1)[0]
-    return elem
+    return elem'''
+    
+    return max(set(data), key=data.count)
 
 if __name__ == '__main__':
     #These "asserts" using only for self-checking and not necessary for auto-testing
