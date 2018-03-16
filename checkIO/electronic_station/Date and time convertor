@@ -1,0 +1,21 @@
+import calendar
+
+def date_time(time):
+    #replace this for solution
+    list_time = time.split( )
+    dates = list_time[0].split(".")
+    hour = list_time[1].split(":")
+    
+    if int(hour[0]) == 1 and int(hour[1]) == 1:
+        return ("{day} {month} {year} year {hour} hour {minutes} minute"
+                      .format(day=int(dates[0]), month=calendar.month_name[int(dates[1])], year=int(dates[2]),
+                              hour=int(hour[0]), minutes=int(hour[1])))
+
+    return ("{day} {month} {year} year {hour} hours {minutes} minutes"
+                      .format(day=int(dates[0]), month=calendar.month_name[int(dates[1])], year=int(dates[2]),
+                              hour=int(hour[0]), minutes=int(hour[1])))
+
+if __name__ == '__main__':
+    #These "asserts" using only for self-checking and not necessary for auto-testing
+    assert date_time("01.01.2000 00:00") == "1 January 2000 year 0 hours 0 minutes", "Millenium"
+    assert date_time("09.05.1945 06:30") == "9 May 1945 year 6 hours 30 minutes", "Victory"
