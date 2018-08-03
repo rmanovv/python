@@ -1,0 +1,41 @@
+def reverse_roman(roman_string):
+
+    rom_val = (
+         ('M',  1000),
+         ('CM', 900),
+         ('D',  500),
+         ('CD', 400),
+         ('C',  100),
+         ('XC', 90),
+         ('L',  50),
+         ('XL', 40),
+         ('X',  10),
+         ('IX', 9),
+         ('V',  5),
+         ('IV', 4),
+         ('I',  1))
+
+    result = 0
+    boom = []
+    for i in range(len(roman_string)):
+        for letter, value in rom_val:
+            if roman_string[i] == letter:
+                boom.append(value)
+    boom.append(0)
+    for i in range(len(roman_string)):
+        if boom[i] >= boom[i + 1]:
+            result = result + boom[i]
+        else:
+            result = result - boom[i]
+    return result
+
+
+
+if __name__ == '__main__':
+    #These "asserts" using only for self-checking and not necessary for auto-testing
+    assert reverse_roman('VI') == 6, '6'
+    assert reverse_roman('LXXVI') == 76, '76'
+    assert reverse_roman('CDXCIX') == 499, '499'
+    assert reverse_roman('MMMDCCCLXXXVIII') == 3888, '3888'
+    print('Great! It is time to Check your code!')
+
