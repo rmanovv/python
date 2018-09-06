@@ -5,7 +5,6 @@
 '''
 
 
-colors = ['Green', 'Red', 'Blue', 'Yellow']
 
 class Lamp:
 
@@ -14,6 +13,9 @@ class Lamp:
         self.color = ''
 
     def light(self):
+    
+        colors = ['Green', 'Red', 'Blue', 'Yellow']
+        
         if self.count == 4:
             self.count = 0
             self.color = colors[self.count]
