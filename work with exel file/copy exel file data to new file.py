@@ -53,10 +53,17 @@ class Exel:
 
         return column_list
 
-    def dictionary_values(self, column_one, column_two)->dict:  # take two string parameter of columns letters
+    def two_column_values(self, column_one, column_two)->dict:  # take two string parameter of columns letters
 
         return dict(zip(self.one_column_values(column_one),
                         self.one_column_values(column_two)))
+
+    def concatenate_two_column(self, column_one, column_two)->list:
+        marge = []
+
+        for i, j in self.two_column_values(column_one, column_two).items():
+            marge.append(str(i)+str(j))
+        return marge
 
     def copy_all_data(self):
         for r in range(1, self.all_rows+1):
@@ -68,3 +75,5 @@ class Exel:
 
 
 temp = Exel()
+
+print(temp.concatenate_two_column('A', 'B'))
