@@ -4,17 +4,27 @@ import openpyxl
 
 class Exel:
 
-    wb1 = openpyxl.load_workbook('Import_Folders_new.xlsx')
+    file_name1 = 'Import_Folders_new.xlsx'
+    wb1 = openpyxl.load_workbook(file_name1)
     sheet_names1 = wb1.sheetnames
     sheet1 = wb1[sheet_names1[1]]
     all_rows = sheet1.max_row
     all_column = sheet1.max_column
+    # sell_value = sheet1['A1'].value
 
-    wb2 = openpyxl.load_workbook('test.xlsx')
+    file_name2 = 'test.xlsx'
+    wb2 = openpyxl.load_workbook(file_name2)
     sheet_names2 = wb2.sheetnames
     sheet2 = wb2[sheet_names2[0]]
 
-    def create_file(self, file_name):
+    @classmethod
+    def set_file(cls, file1, file2):
+        # class method giv files names if they need to be changed
+        cls.file_name1 = file1
+        cls.file_name2 = file2
+
+    @staticmethod
+    def create_file(file_name):
         # filename = "test.xlsx"
         directory_path = os.getcwd()
         file_path = directory_path + "\\" + file_name
@@ -45,11 +55,11 @@ class Exel:
         #
         # return column_list
 
-        value = 1
+        count = 1
 
         for i in range(self.all_rows):
-            column_list.append(self.sheet1[column_name + str(value)].value)
-            value += 1
+            column_list.append(self.sheet1[column_name + str(count)].value)
+            count += 1
 
         return column_list
 
@@ -76,4 +86,4 @@ class Exel:
 
 temp = Exel()
 
-print(temp.concatenate_two_column('A', 'B'))
+print(temp.sell_value)
