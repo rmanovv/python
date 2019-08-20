@@ -1,0 +1,47 @@
+'''
+Your task is to count the sum of the number of steps required to pick up all 3 items - ('C' - compass), ('M' - map),
+('S' - spyglass) from your starting position. So the result will be the sum of distance from Y to C, from Y to M and from Y to S
+(not Y-C-M-S).
+Note that you can walk in 8 directions - left, right, up, down and sideways (on the diagonal in any direction). Your starting
+position is 'Y'.
+'''
+
+
+def navigation(seaside):
+    #replace this for solution
+    column_1=len(seaside[0])
+    row_1=len(seaside)
+    for x in range(row_1):
+        for y in range(column_1):
+            if 'Y'== seaside[x][y]:yy=[x, y]
+            if 'C'== seaside[x][y]:c=[x, y]
+            if 'M'== seaside[x][y]:m=[x, y]
+            if 'S'== seaside[x][y]:s=[x, y]
+
+
+    return max(abs(c[0]-yy[0]), abs(c[1]-yy[1]))+max(abs(m[0]-yy[0]), abs(m[1]-yy[1]))+max(abs(s[0]-yy[0]), abs(s[1]-yy[1]))
+
+if __name__ == '__main__':
+    print("Example:")
+    print(navigation([['Y', 0, 0, 0, 'C'],
+                      [ 0,  0, 0, 0,  0],
+                      [ 0,  0, 0, 0,  0],
+                      ['M', 0, 0, 0, 'S']]))
+
+    #These "asserts" using only for self-checking and not necessary for auto-testing
+    assert navigation([['Y', 0, 0, 0, 'C'],
+                       [ 0,  0, 0, 0,  0],
+                       [ 0,  0, 0, 0,  0],
+                       ['M', 0, 0, 0, 'S']]) == 11
+
+    assert navigation([[ 0,  0, 'C'],
+                       [ 0, 'S', 0],
+                       ['M','Y', 0]]) == 4
+
+    assert navigation([[ 0,  0, 0,  0,  0,  0,  0],
+                       [ 0,  0, 0, 'M', 0, 'S', 0],
+                       [ 0,  0, 0,  0,  0,  0,  0],
+                       [ 0,  0, 0, 'C', 0,  0,  0],
+                       [ 0, 'Y',0,  0,  0,  0,  0],
+                       [ 0,  0, 0,  0,  0,  0,  0]]) == 9
+    print("Coding complete? Click 'Check' to earn cool rewards!")
